@@ -12,17 +12,10 @@
 </head>
 
 <body class="bg-gray-200 h-screen flex flex-col justify-center items-center">
-    <div>
-        <input type="text" id="usernameInput" placeholder="Enter GitHub username">
-        <button onclick="searchUser()">Search</button>
-    </div>
-    <div id="userInfo">
-
-    </div>
 
     <!-- Search bar -->
     <div class="mb-4 flex w-64" id="searchBar">
-        <input type="text" placeholder="Github @username"
+        <input type="text" placeholder="Github @username" id="git_username"
             class="w-full py-2 px-4 border border-gray-300 rounded-l-full  focus:outline-none focus:ring focus:border-blue-300">
         <button onclick="showProfile()"
             class="py-2 px-4 bg-blue-500 text-white rounded-r-full hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Git</button>
@@ -41,6 +34,11 @@
             <p class="text-gray-700"><i class="fa-solid fa-users"></i> Followers <span id="git_followers"></span></p>
             <p class="text-gray-700"><i class="fa-solid fa-user"></i> Following <span id="git_following"></span></p>
         </div>
+    </div>
+
+    <!-- Not Found -->
+    <div id="not-found">
+        
     </div>
 
     <!-- JS -->

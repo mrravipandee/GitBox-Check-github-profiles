@@ -10,12 +10,9 @@ function showProfile() {
   } else {
     profileDiv.classList.add("hidden");
   }
-}
 
-// api calling
-function searchUser() {
   // for api key
-  const username = document.getElementById("usernameInput").value;
+  const username = document.getElementById("git_username").value;
   const apiUrl = `https://api.github.com/users/${username}`;
 
   fetch(apiUrl, {
@@ -31,25 +28,16 @@ function searchUser() {
       const gitName = document.getElementById("git_name");
       const gitFollowers = document.getElementById("git_followers");
       const gitFollowing = document.getElementById("git_following");
-      const userInfo = document.getElementById("userInfo");
 
-      gitPic.src = data.avatar_url;
+      gitPic.src = `${data.avatar_url}`;
       gitLocation.innerHTML = `${data.location}`;
       gitName.innerHTML = `${data.name}`;
       gitFollowers.innerHTML = `${data.followers}`;
       gitFollowing.innerHTML = `${data.following}`;
-
-      userInfo.innerHTML = `
-            <h2>${data.name}</h2>
-            <p><i class="fa-solid fa-users"></i> Followers: ${data.followers}</p>
-            <p>Following: ${data.following}</p>
-            <p>Location: ${data.location}</p>
-            <img src="${data.avatar_url}" alt="Avatar" style="width: 100px; height: 100px;">
-        `;
     })
     .catch((error) => {
       console.error("Error:", error);
-      const userInfo = document.getElementById("userInfo");
-      userInfo.innerHTML = `<p>User not found</p>`;
+      const notFound = document.getElementById("not-found");
+      notFound.innerHTML = `<p>User not found</p>`;
     });
 }
