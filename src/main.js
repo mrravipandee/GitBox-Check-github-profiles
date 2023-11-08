@@ -41,3 +41,8 @@ function showProfile() {
       notFound.innerHTML = `<p>User not found</p>`;
     });
 }
+
+function btnFollow() {
+  const getUsername = document.getElementById("git_username").value;
+  window.open(`https://github.com/${getUsername}`, "_blank");
+}
